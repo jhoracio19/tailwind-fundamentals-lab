@@ -8,3 +8,8 @@
         @apply mb-2 text-3xl font-bold;
     }
 }
+
+@layer components{
+    .form-control{
+        @apply rounded-md border border-gray-500 bg-transparent px-4 py-3 text-white mb-2 rounded-md border border-gray-600 bg-transparent px-4 py-3 text-gray-400 outline-none;
+}

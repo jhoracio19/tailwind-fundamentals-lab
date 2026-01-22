@@ -19,12 +19,15 @@
     --color-slate-700: oklch(37.2% 0.044 257.287);
     --color-slate-800: oklch(27.9% 0.041 260.031);
     --color-slate-900: oklch(20.8% 0.042 265.755);
+    --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-900: oklch(21% 0.034 264.665);
+    --color-gray-950: oklch(13% 0.028 261.692);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-md: 28rem;
@@ -226,6 +229,9 @@
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
+  .mb-5 {
+    margin-bottom: calc(var(--spacing) * 5);
+  }
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
   }
@@ -265,6 +271,9 @@
   .max-w-md {
     max-width: var(--container-md);
   }
+  .min-w-max {
+    min-width: max-content;
+  }
   .flex-1 {
     flex: 1;
   }
@@ -288,6 +297,9 @@
   }
   .items-center {
     align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
   }
   .justify-end {
     justify-content: flex-end;
@@ -321,6 +333,9 @@
   .self-start {
     align-self: flex-start;
   }
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
   .rounded {
     border-radius: 0.25rem;
   }
@@ -352,6 +367,21 @@
   }
   .border-slate-600 {
     border-color: var(--color-slate-600);
+  }
+  .bg-gray-900 {
+    background-color: var(--color-gray-900);
+  }
+  .bg-gray-900\/20 {
+    background-color: color-mix(in srgb, oklch(21% 0.034 264.665) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-gray-900) 20%, transparent);
+    }
+  }
+  .bg-gray-900\/35 {
+    background-color: color-mix(in srgb, oklch(21% 0.034 264.665) 35%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-gray-900) 35%, transparent);
+    }
   }
   .bg-pink-500 {
     background-color: var(--color-pink-500);
@@ -403,6 +433,9 @@
   }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
+  }
+  .text-right {
+    text-align: right;
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -552,6 +585,16 @@
       margin-bottom: calc(var(--spacing) * 4);
     }
   }
+  .odd\:bg-white {
+    &:nth-child(odd) {
+      background-color: var(--color-white);
+    }
+  }
+  .even\:bg-gray-50 {
+    &:nth-child(even) {
+      background-color: var(--color-gray-50);
+    }
+  }
   .checked\:after\:absolute {
     &:checked {
       &::after {
@@ -641,10 +684,57 @@
       }
     }
   }
+  .hover\:text-gray-500 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gray-500);
+      }
+    }
+  }
   .hover\:underline {
     &:hover {
       @media (hover: hover) {
         text-decoration-line: underline;
+      }
+    }
+  }
+  .md\:table {
+    @media (width >= 48rem) {
+      display: table;
+    }
+  }
+  .md\:table-header-group {
+    @media (width >= 48rem) {
+      display: table-header-group;
+    }
+  }
+  .md\:table-row {
+    @media (width >= 48rem) {
+      display: table-row;
+    }
+  }
+  .md\:bg-gray-900\/35 {
+    @media (width >= 48rem) {
+      background-color: color-mix(in srgb, oklch(21% 0.034 264.665) 35%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-gray-900) 35%, transparent);
+      }
+    }
+  }
+  .dark\:odd\:bg-gray-900\/50 {
+    @media (prefers-color-scheme: dark) {
+      &:nth-child(odd) {
+        background-color: color-mix(in srgb, oklch(21% 0.034 264.665) 50%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-gray-900) 50%, transparent);
+        }
+      }
+    }
+  }
+  .dark\:even\:bg-gray-950 {
+    @media (prefers-color-scheme: dark) {
+      &:nth-child(even) {
+        background-color: var(--color-gray-950);
       }
     }
   }

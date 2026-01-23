@@ -638,9 +638,24 @@
       opacity: 100%;
     }
   }
+  .peer-checked\:block {
+    &:is(:where(.peer):checked ~ *) {
+      display: block;
+    }
+  }
   .peer-checked\:line-through {
     &:is(:where(.peer):checked ~ *) {
       text-decoration-line: line-through;
+    }
+  }
+  .peer-checked\/draft\:block {
+    &:is(:where(.peer\/draft):checked ~ *) {
+      display: block;
+    }
+  }
+  .peer-checked\/published\:block {
+    &:is(:where(.peer\/published):checked ~ *) {
+      display: block;
     }
   }
   .peer-has-checked\:block {
